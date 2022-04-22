@@ -39,13 +39,13 @@ we actually see at 22:35:27.437 `relay_v2` starting `running` in polling::epoll:
 So my intrepation of the above is that.
  * relay_v2 was awoke in epoll because the EPOLLIN (events: 1) event fired and key 0 (u64: 0).
  * epoll then calls modify (which called ctl) with key: 18446744073709551615 (0xFFFFFFFFFFFFFFFF)
-   for all of the (4000201b) readablity-events[^1]
+   for all of the (4000201b) readablity-events[^1] [readability events](#readability-events)
 
 Test writability-events[^2] link
 
 
 
-[^1]: readablity-events 4000201b libc::EPOLLIN | libc::EPOLLRDHUP | libc::EPOLLHUP | libc::EPOLLERR | libc::EPOLLPRI
+[^1]: <a id="readability-events">readability events</a> 4000201b libc::EPOLLIN | libc::EPOLLRDHUP | libc::EPOLLHUP | libc::EPOLLERR | libc::EPOLLPRI
 
 [^2]: writabilty-events 0000001c  libc::EPOLLOUT | libc::EPOLLHUP | libc::EPOLLERR
 
