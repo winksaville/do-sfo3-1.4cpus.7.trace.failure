@@ -41,13 +41,13 @@ So my intrepation of the above is that.
  * epoll then calls modify (which called ctl) with key: 18446744073709551615 (0xFFFFFFFFFFFFFFFF)
    for all of the (4000201b) readablity-events[^1]
 
-Test [writability-events] link
+Test [^writability-events] link
 
 
 
 [^1]: readablity-events 4000201b libc::EPOLLIN | libc::EPOLLRDHUP | libc::EPOLLHUP | libc::EPOLLERR | libc::EPOLLPRI
 
-[writabilty-events]: 0000001c  libc::EPOLLOUT | libc::EPOLLHUP | libc::EPOLLERR
+[^writabilty-events]: 0000001c  libc::EPOLLOUT | libc::EPOLLHUP | libc::EPOLLERR
 
 From linux include/uapi/linux/eventpoll.h:
 ```
